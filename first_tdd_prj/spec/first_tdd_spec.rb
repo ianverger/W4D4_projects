@@ -32,4 +32,33 @@ describe Array do
             expect(arr2.two_sum).to eq([[0, 1], [2, 3]])
         end
     end
+
+    describe "#my_transpose" do
+    let (:arr1) { [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8]
+      ] }
+
+        it "return a transposed version of the array" do
+            expect(arr1.my_transpose).to eq([[0, 3, 6], [1, 4, 7], [2, 5, 8]])
+        end
+
+        it "should contain subarrays of the same length" do
+            expect(arr1.length).to eq(arr1[0].length)
+        end
+
+        it "does not modify the original array" do
+            arr1.my_transpose
+            expect(arr1).to eq([[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+        end
+    end
+
+    describe "#stock_picker" do
+    let (:arr1) { [56, 32, 1, 90, 45, 56] }
+
+        it "outputs the most profitable pair of days on which to first buy the stock and then sell the stock" do
+            expect(arr1.stock_picker).to eq([56, 1])
+        end
+    end
 end
